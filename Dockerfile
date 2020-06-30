@@ -1,6 +1,6 @@
 FROM klakegg/hugo:0.73.0-ext-ubuntu
 
-ARG baseurl
+ARG baseurl=${baseurl}
 
 # Install Nodejs
 RUN apt-get update -y && \
@@ -22,4 +22,4 @@ RUN node ./build-lunrjs-index.js > static/search-index.json
 
 # Run hugo server
 RUN echo "Run Hugo server"
-ENTRYPOINT ["hugo", "server", "--baseURL", "$baseurl", "--port", "8000", "--bind", "0.0.0.0", "--appendPort=false"]
+ENTRYPOINT ["hugo", "server", "--baseURL", "${baseurl}", "--port", "8000", "--bind", "0.0.0.0", "--appendPort=false"]
