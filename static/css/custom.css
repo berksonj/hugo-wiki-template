@@ -1,0 +1,17 @@
+.header .site_title_container .site_title a {
+	width: 500px;
+	max-width: 100%;
+}
+
+.nav_container {
+	height: auto;
+}
+
+.nav_container .site_nav a {
+	font-size: 1em;
+}
+
+.center {
+	margin: 0 auto;
+	text-align: center;
+}

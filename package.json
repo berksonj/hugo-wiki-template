@@ -1,0 +1,23 @@
+{
+  "name": "hugo-wiki-template",
+  "version": "1.0.0",
+  "description": "hugo-wiki-template package. Used for lunr.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/berksonj/jb_wiki/issues"
+  },
+  "homepage": "https://github.com/berksonj/jb_wiki#readme",
+  "devDependencies": {
+    "lunr": "^2.3.8",
+    "parser-front-matter": "^1.6.4"
+  }
+}

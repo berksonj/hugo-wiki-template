@@ -1,0 +1,8 @@
+# Hugo default output directory
+/public
+
+# Lunr.js search index file
+/static/search-index.json
+
+# OSX
+.DS_Store

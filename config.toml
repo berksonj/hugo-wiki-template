@@ -1,0 +1,51 @@
+baseURL = "https://wiki.blucoin.xyz/"
+languageCode = "en-us"
+title = "JB Wiki"
+theme = "zozo"
+
+summaryLength = 100
+paginate = 10
+
+[author]
+  name = "JB"
+
+[params]
+  # enableSummary = true
+  mainSections = ["posts","post"]
+  customCSS = ["custom.css"]
+
+
+[[menu.main]]
+  name = "Search"
+  weight = 5
+  identifier = "search"
+  url = "/search/"
+[[menu.main]]
+  name = "Home"
+  weight = 10
+  identifier = "home"
+  url = "/"
+[[menu.main]]
+  name = "Archive"
+  weight = 20
+  identifier = "archive"
+  url = "/posts/"
+[[menu.main]]
+  name = "Categories"
+  weight = 30
+  identifier = "categories"
+  url = "/categories/"
+[[menu.main]]
+  name = "Tags"
+  weight = 40
+  identifier = "tags"
+  url = "/tags/"
+
+
+pygmentsUseClasses = true
+pygmentCodeFences = true
+pygmentscodefencesguesssyntax = true
+
+
+[markup.goldmark.renderer]
+  unsafe= true

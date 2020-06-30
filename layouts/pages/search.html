@@ -1,0 +1,66 @@
+{{ partial "head.html" . }}
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        {{ partial "nav.html" . }}
+        {{ partial "header.html" . }}
+        <div class="content">
+            <form method="get" action="">
+                <input id="search" name="q" type="text" />
+                <button type="submit" class="button">Search</button>
+                <a href="/search">Clear</a>
+            </form>
+            <div id="app"></div>
+            <br /><br />
+
+            <script src="https://unpkg.com/lunr/lunr.js"></script>
+            {{ $p := slice }}
+            {{ range (where .Site.RegularPages "Section" "!=" "") }}
+              {{ $post := dict "link" .RelPermalink "title" .Title "content" (substr .Plain 0 200) -}}
+              {{ $p = $p | append $post -}}
+            {{ end }}
+            
+            <script>
+            const posts = JSON.parse({{ $p | jsonify }});
+            console.log(posts);
+            const query = new URLSearchParams(window.location.search);
+            const searchString = query.get('q');
+            document.querySelector('#search').value = searchString;
+            const $target = document.getElementById('app');
+
+            // Our index uses title as a reference
+            const postsByTitle = posts.reduce((acc, curr) => {
+                acc[curr.title] = curr;
+                return acc;
+            }, {});
+
+            fetch('/search-index.json').then(function(res) {
+                return res.json();
+            }).then(function(data) {
+                console.log(data);
+                const index = lunr.Index.load(data);
+                const matches = index.search(searchString);
+                const matchPosts = [];
+                matches.forEach((m) => {
+                    matchPosts.push(postsByTitle[m.ref]);
+                });
+
+                if (matchPosts.length > 0) {
+                    $target.innerHTML = matchPosts.map(p => {
+                        return `<div>
+                <h3><a href="${p.link}">${p.title}</a></h3>
+                <p>${p.content}...</p>
+              </div>`;
+                    }).join('');
+                } else {
+                    $target.innerHTML = `<div>No search results found</div>`;
+                }
+            });
+            </script>
+        </div>
+    </div>
+    {{ partial "footer.html" . }}
+    {{ partial "js.html" . }}
+</body>
+
+</html>
