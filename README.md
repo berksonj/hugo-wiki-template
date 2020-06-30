@@ -38,6 +38,10 @@ To create a new entry, run the following inside your docker container. TODO: exp
 
 https://gohugo.io/getting-started/quick-start/#step-4-add-some-content
 
+### Editing the Navigation Menu
+
+TODO: explain
+
 ## Prepare for Production
 
 TODO: explain build args.
@@ -47,8 +51,6 @@ TODO: maybe don't use docker-compose.
 ## Customizing the Site
 
 ### Config
-
-### Navigation
 
 ### Theme
 
