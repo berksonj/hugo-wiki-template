@@ -4,7 +4,7 @@ services:
     build:
       context: .
       args:
-        baseurl: "example.com"
+        baseurl: "https://example.com/"
     command: "--baseURL http://localhost:8000/"
     ports:
       - 8000:8000
