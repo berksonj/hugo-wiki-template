@@ -55,3 +55,9 @@ TODO: maybe don't use docker-compose.
 ### Custom Styles
 
 ## Contributing
+
+When contributing to this repository, please first discuss the change you wish to make in an issue before making a change.
+
+Please note we have a code of conduct, please follow it in all your interactions with the project.
+
+To learn more about contributing please read [CONTRIBUTING.md](CONTRIBUTING.md).
